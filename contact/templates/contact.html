@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="container my-4">
+<section class="container-fluid py-5 bg-light border border-top">
     <div class="row justify-content-center">
-        <div class="col-8 d-flex flex-column align-items-center">
+        <div class="col-6 d-flex flex-column align-items-center">
             <div class="col">
-                <h1>
+                <h1 class="border-bottom-g animated fadeIn">
                     CONTACT
                 </h1>
             </div>
-            <div class="col-10 my-5">
+            <div class="col-10 my-4">
                 
-                   <p>
+                   <p class="small animated fadeIn">
                         Should you have any questions, we are here to assist you.
                     </p>
-                   <p>
+                   <p class="small animated fadeIn">
                         You can send us an email using the form below or contact us via WhatsApp at 1163356190.
                    </p>
-                   <p>
+                   <p class="small animated fadeIn">
                         You can also follow us and message us on Facebook and Instagram.
                    </p>
             </div>
-            <div class="col-10 mt-3 mb-5">
+            <div class="col-10 mt-3 mb-5 animated fadeIn">
                 <div class="row">
                     <form action="" class="row">
                     {% csrf_token %}

@@ -15,7 +15,7 @@ a{
 }
 
 .border-animation{
-    border-bottom: white solid 2px;
+    border-bottom: #f8f9fa solid 2px;
     transition: all 0.4s ease-in-out;
 }
 
@@ -78,7 +78,6 @@ a{
 
 .pathology-div:hover{
     background-color: #f8f9fa;
-
     border: 1px solid #00833E;
 }
 /* section 3 carrousel*/

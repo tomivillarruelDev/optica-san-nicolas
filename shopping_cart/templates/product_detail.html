@@ -5,7 +5,7 @@
 <section class="container py-5">
     <div class="row">
         <div class="col-7">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" width="100%" height="100%">
         </div>
         <div class="col-5">
             <div class="border-bottom">
@@ -25,11 +25,10 @@
                 <div>
                     <a class="btn btn-success w-100 small"href="{% url 'add_to_cart' product.id %}">ADD TO CART</a>
                     <p class="pt-4">
-                        <a class="nav-link small" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <a class="small text-success border-bottom border-success border-0" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Payment methods
                         </a>
                     </p>
-                    <p class="text-black">aaaaaa{{product.image.url}}</p>
                     <div class="collapse" id="collapseExample">
                         <div class="small">
                          <p>

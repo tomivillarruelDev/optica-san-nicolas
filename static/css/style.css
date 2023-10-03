@@ -27,6 +27,10 @@ a{
     font-size:0.6rem;
 }
 
+.medium{
+    font-size:0.8rem;
+}
+
 #header-buttons{
     display: flex;
     align-items: center;
@@ -34,6 +38,10 @@ a{
 
     & .navbar-icons{
         cursor: pointer;
+    }
+
+    & .offcanvaboostrapmd{
+        display: none;
     }
 }
 
@@ -129,7 +137,7 @@ a{
 .div-shop{
     position: absolute;
     top: 80%;
-    left: 30%;
+    left: 35%;
     transform: translate(-50%, -50%);
     color: white;
     font-size: 0.8rem;
@@ -148,7 +156,7 @@ a{
 
 .shop-product{
     background-color: white;
-    transition: all 0.5s ease;
+    transition: background-color 0.5s ease;
 }
 /* colores para backgorund para hovers oscuros
 
@@ -190,12 +198,18 @@ a{
         display: block;
         align-items: none;
         justify-content: none;
+
+        & .offcanvaboostrapmd{
+            display: block;
+        }
+
+        & .offcanvaboostraplg{
+            display: none;
+        }
     }
-    #offcanvaboostraplg{
+    
+    #shipping{
         display: none;
     }
-    #offcanvaboostrapmd{
-        display: block;
-    }      
 }
 

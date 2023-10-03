@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
-
+{% block title %}{{ pathology.name }}{% endblock %}
 {% block content %}
-<main>
-    <section class="container-fluid ">
-                <p class="display-3 text-center">
-                    {{pathology.name}}
-                </p>
-                <div class="row d-flex justify-content-center">
-                    <p class="col-md-7 shadow-sm p-3 mb-5 bg-white rounded">
-                        {{pathology.description}}
-                    </p>    
-                </div>       
-        </section>
-</main>
+
+<section class="container-fluid bg-success bg-gradient py-5">
+    <p class="display-3 text-center text-white">
+        {{pathology.name}}
+    </p>
+    <div class="row justify-content-center">
+        <p class="col-md-7 shadow-sm p-3 bg-white rounded-3 medium">
+            {{pathology.description}}
+        </p>    
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="text-center">
+                <a href="{% url 'contact' %}" class="btn btn-outline-light rounded-3">Request a free consultation</a>
+            </p>
+        </div>
+    </div>      
+</section>
 {% endblock %}

@@ -1,55 +1,55 @@
 {% load static %}
-<a class="nav-link navbar-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUser" aria-controls="offcanvasRight"><img src="{% static 'images/icons/user.png' %}" width="30px"></a>
-
-        <div class="offcanvas offcanvas-end" tabindex="-2" id="offcanvasUser" aria-labelledby="offcanvasRightLabel">
-            {% if user.is_authenticated %}
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel1">Good morning.</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div>
-                    <p class=" text-center display-2 mb-4">Óptica San <strong class="bor6">Nicolas</strong></p>   
-                </div> 
-                <div class="text-center">
-                        <p class="border bg-light rounded p-2"><a href="" class="text-dark">Modificar patologías</a></p>
-                        <p class="border bg-light rounded p-2"><a href="stock.php" class="text-dark">Modificar Stock</a></p>
+{% if user.is_authenticated %}
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel1">
+        Good morning.
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+    <div>
+        <p class=" text-center display-2 mb-4">Óptica San <strong class="bor6">Nicolas</strong></p>   
+    </div> 
+    <div class="text-center">
+            <p class="border bg-light rounded p-2"><a href="" class="text-dark">Modificar patologías</a></p>
+            <p class="border bg-light rounded p-2"><a href="stock.php" class="text-dark">Modificar Stock</a></p>
+    </div>
+    <p class="text-center">
+        <a href="{% url 'signout' %}" class="form-control btn-g mt-5">Log out</a>
+    </p>       
+</div>
+{% else %}
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel1">Log in</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+    <div>
+        <p class="text-center display-2 mb-4">
+            Óptica San <strong class="bor6">Nicolas</strong>
+        </p>   
+    </div> 
+    <div>
+        <form action="{% url 'signin' %}" method="POST">
+            {% csrf_token %}
+            {% if error %}
+                <div class="text-danger  small d-flex bg-danger-subtle border border-danger-subtle p-2">
+                    {{error}}
                 </div>
-                
-                <p class="text-center">
-                    <a href="{% url 'signout' %}" class="form-control btn-g mt-5">Log out</a>
-                </p>       
-            </div>
-        {% else %}
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel1">Log in</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-        <div class="offcanvas-body">
-            <div>
-                <p class="text-center display-2 mb-4">Óptica San <strong class="bor6">Nicolas</strong></p>   
-            </div> 
-                <div>
-                    <form action="{% url 'signin' %}" method="POST">
-                        {% csrf_token %}
-                        {% if error %}
-                            <div class="text-danger  small d-flex bg-danger-subtle border border-danger-subtle p-2">
-                                {{error}}
-                            </div>
-                            {% endif %}
-                            <input type="text" name="username" id="username" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Write your username">
-                        
-                            <input type="password" name="password" id="password" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Write your password">
-                        <button class="btn btn-success form-control mb-5">
-                            Sign in
-                        </button>
-                    </form>        
-                </div>
-                <div> 
-                    <p class="text-center border">
-                        Don't have an account? <a href="{% url 'signup' %}" class="text-success">Sign up</a>
-                    </p>
-                </div>   
-            </div>
-        {% endif %}
-        </div>
+            {% endif %}
+                <input type="text" name="username" id="username" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Write your username">
+            
+                <input type="password" name="password" id="password" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Write your password">
+                <button class="btn btn-success form-control mb-5">
+                    Sign in
+                </button>
+        </form>        
+    </div>
+    <div> 
+        <p class="text-center border">
+            Don't have an account? 
+            <a href="{% url 'signup' %}" class="text-success">Sign up</a>
+        </p>
+    </div>   
+</div>
+{% endif %}

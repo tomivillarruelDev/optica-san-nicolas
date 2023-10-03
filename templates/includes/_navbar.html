@@ -3,7 +3,7 @@
 <div id="header-buttons" class="bg-body-tertiary">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Óptica San Nicolas</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Óptica San Nicolas</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,18 +19,42 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <a class="nav-link" href="#s4-shop">Catalog</a>
+                    <a class="nav-link" href="{% url 'home' %}#s4-shop">Catalog</a>
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    
+                    <div class="offcanvaboostrapmd pe-2">
+                        <a class="nav-link navbar-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUsermd" aria-controls="offcanvasRight"><img src="{% static 'images/icons/user.png' %}" width="30px"></a>
+                        
+                        <div class="offcanvas offcanvas-end" tabindex="-2" id="offcanvasUsermd" aria-labelledby="offcanvasRightLabel">
+                            {% include 'signin.html' %}
+                        </div>
+                    </div>
+                    <div class="offcanvaboostrapmd pe-2">
+                        <a class="nav-link navbar-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCartmd" aria-controls="offcanvasRight"><img src="{% static 'images/icons/cart.png' %}" width="30px"></a>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCartmd" aria-labelledby="offcanvasRightLabel">
+                            {% include 'cart.html' %}
+                        </div>
+                    </div>
+                     
                 </div>
             </div>
         </div>               
     </nav>
     <div class="d-flex">
         <div class="offcanvaboostraplg pe-2">
-            {% include 'signin.html' %}
+            <a class="nav-link navbar-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasUserlg" aria-controls="offcanvasRight"><img src="{% static 'images/icons/user.png' %}" width="30px"></a>
+                        
+            <div class="offcanvas offcanvas-end" tabindex="-2" id="offcanvasUserlg" aria-labelledby="offcanvasRightLabel">
+                {% include 'signin.html' %}
+            </div>
         </div>
         <div class="offcanvaboostraplg pe-2">
-            {% include 'cart.html' %}
+            <a class="nav-link navbar-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCartlg" aria-controls="offcanvasRight"><img src="{% static 'images/icons/cart.png' %}" width="30px"></a>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCartlg" aria-labelledby="offcanvasRightLabel">
+                {% include 'cart.html' %}
+            </div>
         </div>
     </div>       
 </div>

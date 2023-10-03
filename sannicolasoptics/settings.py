@@ -70,7 +70,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'shopping_cart.context_processor.cart_total'
+                'sannicolasoptics.context_processor.cart_total',
+                'sannicolasoptics.context_processor.pathologies',
+                'sannicolasoptics.context_processor.products',
+
             ],
         },
     },

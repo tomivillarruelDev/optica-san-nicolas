@@ -1,44 +1,46 @@
 {% load static %}
-<a class="nav-link navbar-icons" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasRight"><img src="{% static 'images/icons/cart.png' %}" width="30px"></a>
+<div class="offcanvas-header border border-bottom">
+    <p class="text-secondary m-auto small fw-semibold" id="offcanvasRightLabel">SHOPPING CART</p>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+    {% if request.session.cart.items %}
+    {% for key, value in request.session.cart.items %}
+    <div class="row py-3 border-bottom">
+        <div class="col-4">
+            <img src="{{ value.image }}" alt="" class="img-fluid">
+        </div>
+        <div class="col-8">
+            <p class="text-secondary fw-semibold">{{ value.name }}</p>
+            <p class="btn btn-success rounded-pill small mb-0">FREE SHIPPING</p>
+            <p class="text-secondary">{{ value.price }}</p>
+            <div class="col-5 border rounded d-flex align-items-center">
+                <a href="{% url 'decrement_from_cart' value.product_id %}" class="fs-4 text-black ps-2">-</a>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header border border-bottom">
-        <p class="text-secondary m-auto small fw-semibold" id="offcanvasRightLabel">SHOPPING CART</p>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <p class="text-secondary mb-0 mx-auto">{{ value.quantity }}</p>
+
+                <a href="{% url 'add_to_cart' value.product_id %}" class="fs-4 text-black pe-2">+</a>
+            </div>
+        </div>
     </div>
-    <div class="offcanvas-body">
-        {% if request.session.cart.items %}
-        {% for key, value in request.session.cart.items %}
-        <div class="row py-3">
-            <div class="col-4">
-                <img src="{{ value.image }}" alt="" class="img-fluid">
-            </div>
-            <div class="col-8">
-                <p class="text-secondary">{{ value.name }}</p>
-                <p class="btn btn-success rounded-pill small mb-0">ENVÍO GRATIS</p>
-                <p class="text-secondary">{{ value.price }}</p>
-                <div class="col-5 d-flex align-items-baseline border rounded">
-                    <a href="{% url 'decrement_from_cart' value.product_id %}" class="fs-4 text-black ps-2">-</a>
-                    <p class="text-secondary mx-auto">{{ value.quantity }}</p>
-                    <a href="{% url 'add_to_cart' value.product_id %}" class="fs-4 text-black pe-2">+</a>
-                </div>
-            </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-12">
+            <p class="medium py-3">Total: $ 
+                <span class="fw-semibold">{{cart_total}}</span>
+            </p>
         </div>
-        {% endfor %}
-        <div>
-            <p>Total: {{cart_total |floatformat}}</p>
-                <div class="col-12">
-                    <a class="btn btn-secondary"href="{% url 'clear_cart' %}">
-                        DELETED ALL
-                    </a>
-                </div>
+        <div class="col-12">
+            <a class="btn btn-secondary rounded-pill medium" href="{% url 'clear_cart' %}">
+                DELETED ALL
+            </a>
         </div>
-        {% else %}
-        <div class="row">
-            <div class="col-12">
-                <p class="p-2 border border-black rounded small text-center">Your cart is empty</p>
-            </div>
-        </div>
-        {% endif %}
     </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12">
+            <p class="p-2 border border-black rounded medium text-center">Your cart is empty</p>
+        </div>
+    </div>
+    {% endif %}
 </div>

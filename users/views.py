@@ -3,8 +3,6 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.contrib import messages
-from pathologies.models import Pathology
-from shopping_cart.models import Product
 
 # Create your views here.
 
@@ -21,11 +19,7 @@ def signup(request):
     return render(request, 'signup.html', {'form': form, 'error': form.errors})
   
 def signin(request):
-    products = Product.objects.all()
-    pathologies = Pathology.objects.all()
-
     if request.method == 'GET':
-        
         return render(request, 'home.html', { 
             'form' : AuthenticationForm
         })
@@ -35,10 +29,8 @@ def signin(request):
             return render(request, 'home.html', { 
                 'form' : AuthenticationForm,
                 'error' : 'Username or password is incorrect',
-                'products': products,
-                'pathologies': pathologies,   
             })
-        else: #si el usuario es valido
+        else:
             login(request, user)
             return redirect('home')
             

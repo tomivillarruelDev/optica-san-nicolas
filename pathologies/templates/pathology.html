@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <section class="container-fluid ">
+                <p class="display-3 text-center">
+                    {{pathology.name}}
+                </p>
+                <div class="row d-flex justify-content-center">
+                    <p class="col-md-7 shadow-sm p-3 mb-5 bg-white rounded">
+                        {{pathology.description}}
+                    </p>    
+                </div>       
+        </section>
+</main>
+{% endblock %}

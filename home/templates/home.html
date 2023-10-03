@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<main>
+    <!-- section 1 -->
+    <section id="s1">
+      <div class="s1-background">
+        <div class="s1-opacity d-flex justify-content-center align-items-center flex-column">
+            <p class="display-4 fw-semibold"><span class=" border-bottom border-white border-4 pb-4">
+                What condition do you have?
+            </span></p>
+            <div class="py-5">
+                <p class="h4">
+                    If you already know your condition
+                </p>  
+            </div>
+            <div class="pt-3" id="requestConsultation">
+                <p>
+                   <a href="" class="border border-2 rounded-pill p-4 text-white text-decoration-none">Request a free consultation</a> 
+                </p>
+            </div>
+            
+        </div>
+      </div>
+    </section>
+    <!--section 2 -->
+    <section id="s2" class="py-5">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-sm-4 pb-4">
+                        <img src="{% static 'images/s1.jpg' %}" alt="" width="100%" class="rounded img-fluid animated fadeIn">
+                    </div>
+                    <div class="col-sm-7 offset-sm-1 animated fadeIn">
+                        <h2 class="pb-2">
+                            We are your solution
+                        </h2>
+                            <p>
+                                We can provide you with our assistance through our specialized work.
+                            </p>
+                            <p>
+                                For over 20 years, we have been on this path of Visual Health, acquiring the latest in technology and the best training
+                            </p>
+                            <p>
+                                Our goal is to help you improve your quality of life.
+                            </p>
+                    </div>
+                </div>  
+            </div>
+    </section>
+
+    <section id="s3"> 
+        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner"> 
+                <div class="carousel-item active s3-backgrounds s3-background-1 img-fluid" data-bs-interval="3000"></div>
+                <div class="carousel-item s3-backgrounds s3-background-2 img-fluid" data-bs-interval="4000"></div>
+                <div class="carousel-item s3-backgrounds s3-background-3 img-fluid" data-bs-interval="3000"></div>
+            </div>
+        </div>
+        {% include 'pathologies.html' %}
+    </section>
+    <!--section 4 -->
+        {% include 'shopping_cart.html' %}
+</main>
+{% endblock %}

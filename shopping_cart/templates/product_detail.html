@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+    <div class="row">
+        <div class="col-7">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+        </div>
+        <div class="col-5">
+            <div class="border-bottom">
+                <p class="display-6">
+                    {{ product.name }}
+                </p>
+                <p class="small">
+                    ${{product.price}}
+                </p>
+            </div>
+            <div class="my-4">
+                <div>
+                    <p class="text-success fw-semibold">
+                        20% OFF when buying 1 or more!
+                    </p>
+                </div>
+                <div>
+                    <a class="btn btn-success w-100 small"href="{% url 'add_to_cart' product.id %}">ADD TO CART</a>
+                    <p class="pt-4">
+                        <a class="nav-link small" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Payment methods
+                        </a>
+                    </p>
+                    <p class="text-black">aaaaaa{{product.image.url}}</p>
+                    <div class="collapse" id="collapseExample">
+                        <div class="small">
+                         <p>
+                            <span class="text-success fw-semibold">4</span> installments WITH NO interest using <span class="text-success fw-semibold">DEBIT card</span>
+                         </p>
+                         <p>
+                            <span class="text-success fw-semibold">15% discount</span> when paying with Bank Transfer or Deposit
+                         </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    {{ product.size }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

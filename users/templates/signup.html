@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %} 
+{% block header %}{% endblock %}
+{% block content %}
+<main>
+    <section class="container-fluid mt-2">
+        <div class="row">
+           <div class="col-8 col-sm-7 col-md-6 col-lg-4 m-auto border"> 
+                <div class="col-10  col-md-10 col-lg-11 m-auto ">
+                    <div class="col-10 offset-1">
+                        <h2 class="text-center mt-5 mb-4 display-5 ">Optica San <strong class="bor6">Nicolas</strong></h2>
+                        <p class="my-1 mb-4 text-secondary text-center ">
+                            Register to receive benefits at all of our branches.
+                        </p>
+                    </div>
+                    
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="col-10 offset-1">
+                            {% if error %}
+                            <div class="text-danger small d-flex card bg-danger-subtle border border-danger-subtle ">
+                                {{error}}
+                            </div>
+                            {% endif %}
+                            <input type="text" name="username" id="username" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Write your username">
+                        
+                            <input type="password" name="password1" id="password1" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Write your password">
+            
+                            <input type="password" name="password2" id="password2" class="form-control form-control-sm my-2 bg-light rounded-0" placeholder="Confirm your password">
+                        </div>
+                        <div class="col-8 m-auto">
+                            <p class="col-8 m-auto fw-lighter my-4 text-center small">By registering, you agree to our Terms, our Privacy Policy, and our Cookie Policy.</p>
+                        </div>
+                        <div class="col-10 offset-1">
+                            <button class="btn btn-success form-control mb-5">
+                                Signup
+                            </button>
+                        </div>
+                    </form>
+                        
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 col-sm-7 col-md-6 col-lg-4 m-auto my-2 border text-center py-3"> 
+                <p>Do you have an account? <a href="{% url 'home' %}" class="text-success"> Sign in</a></p>
+            </div>
+        </div>
+        
+    </section>
+</main>
+{% endblock %}
+```

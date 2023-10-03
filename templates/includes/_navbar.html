@@ -1,0 +1,41 @@
+{% load static %}
+<!-- nav -->
+<div id="header-buttons" class="bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Óptica San Nicolas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <!-- open navbar -->
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link" href="stock.php">Catalog</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    <li class="nav-item dropdown"> 
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Pathologies </a>
+                        <ul class="dropdown-menu" id="menu">
+                            {% for pathology in pathologies %}
+                            <li><a class="dropdown-item" href="{% url 'pathology' pathology.id %}">{{ pathology.name }}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </div>
+               
+                <!-- close navbar -->
+            </div>
+        </div>               
+    </nav>
+<div class="d-flex">
+    <div class="offcanvaboostraplg pe-2">
+        {% include 'signin.html' %}
+    </div>
+    <div class="offcanvaboostraplg pe-2">
+        {% include 'cart.html' %}
+    </div>
+</div>    
+    
+</div>
+    <!-- close navbar -->

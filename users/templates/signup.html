@@ -9,7 +9,10 @@
            <div class="col-8 col-sm-7 col-md-6 col-lg-4 m-auto border"> 
                 <div class="col-10  col-md-10 col-lg-11 m-auto ">
                     <div class="col-10 offset-1">
-                        <h2 class="text-center mt-5 mb-4 display-5 ">Optica San <strong class="bor6">Nicolas</strong></h2>
+                        <h2 class="text-center mt-5 mb-4 display-5 animated fadeIn">
+                            Optica San 
+                            <strong class="bor6">Nicolas</strong>
+                        </h2>
                         <p class="my-1 mb-4 text-secondary text-center ">
                             Register to receive benefits at all of our branches.
                         </p>
@@ -17,7 +20,7 @@
                     
                     <form action="{% url 'signup' %}" method="POST">
                         {% csrf_token %}
-                        <div class="col-10 offset-1">
+                        <div class="col-10 offset-1 animated fadeIn">
                             {% if error %}
                             <div class="text-danger small d-flex card bg-danger-subtle border border-danger-subtle ">
                                 {{error}}

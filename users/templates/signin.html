@@ -1,18 +1,29 @@
 {% load static %}
 {% if user.is_authenticated %}
 <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel1">
+    <h5 class="offcanvas-title fw-semibold" id="offcanvasRightLabel1">
         Good morning.
     </h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 </div>
 <div class="offcanvas-body">
     <div>
-        <p class=" text-center display-2 mb-4">Óptica San <strong class="bor6">Nicolas</strong></p>   
+        <p class=" text-center display-2 mb-4">
+            Óptica San 
+            <strong class="bor6">Nicolas</strong>
+        </p>   
     </div> 
-    <div class="text-center">
-            <p class="border bg-light rounded p-2"><a href="" class="text-dark">Modificar patologías</a></p>
-            <p class="border bg-light rounded p-2"><a href="stock.php" class="text-dark">Modificar Stock</a></p>
+    <div class="text-center animated fadeIn">
+            <p><a href="{% url 'contact' %}" class="pathology-div p-2 rounded-3 fw-semibold text-black form-control">
+                Request a consultation</a>
+            </p>
+            <p><a href="" class="pathology-div p-2 rounded-3 fw-semibold text-black form-control">
+                My orders</a>
+            </p>
+            <p><a href="" class="pathology-div p-2 rounded-3 fw-semibold text-black form-control">
+                My coupons</a>
+            </p>    
+
     </div>
     <p class="text-center">
         <a href="{% url 'signout' %}" class="form-control btn-g mt-5">Log out</a>

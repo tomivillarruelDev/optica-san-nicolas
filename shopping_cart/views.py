@@ -17,7 +17,6 @@ def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     cart = Cart(request)
     cart.add(product)
-    print('Session after adding to cart:', request.session.get('cart'))
     return redirect('cart')
 
 def remove_from_cart(request, product_id):
